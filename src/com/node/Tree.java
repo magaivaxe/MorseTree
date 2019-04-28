@@ -1,4 +1,4 @@
-package com.node.tree;
+package com.node;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,13 +13,11 @@ public class Tree {
 	// Fields
 	private static Tree INSTANCE;
 	private Node root;
-
 	// Constructor
 	private Tree() {
 		this.root = new Node();
 		buildTree();
 	}
-
 	// Get Singleton Tree
 	public static Tree getInstance() {
 		if (INSTANCE == null) {
@@ -34,7 +32,7 @@ public class Tree {
 	private void buildTree() {
 		Scanner scanner = null;
 		try {
-			scanner = new Scanner(new File("src/eng.txt"));
+			scanner = new Scanner(new File("src/international.txt"));
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found!");
 		}
@@ -74,25 +72,6 @@ public class Tree {
 			}
 		}
 		current.setLetter(ltr);
-	}
-
-	boolean found = false;
-	String searched = "";
-
-	public String searchTree(Node current, char ltr, String str) {
-		char temp = current.getLetter(); // to debug
-		if (current.getLetter() == ltr) {
-			this.found = true;
-			this.searched = str;
-		} else if (!this.found) {
-			if (current.getLeft() != null) {
-				searchTree(current.getLeft(), ltr, str + ".");
-			}
-			if (current.getRight() != null) {
-				searchTree(current.getRight(), ltr, str + "-");
-			}
-		}
-		return this.found ? this.searched : str;
 	}
 
 	// Getters and Setters

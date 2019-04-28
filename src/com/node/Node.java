@@ -8,7 +8,7 @@ public class Node {
   private char letter;
   private Node left;
   private Node right;
-  public static final char EMPTY = ' ';
+  private final char EMPTY = ' ';
   // Constructor
   public Node() {
     this.letter = EMPTY;

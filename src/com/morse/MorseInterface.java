@@ -7,5 +7,5 @@ public interface MorseInterface {
   public String decoder(String str);
 
   public String encoder(String str);
-  
+
 }

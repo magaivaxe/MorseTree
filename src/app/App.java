@@ -1,10 +1,11 @@
 package app;
 
-import com.node.tree.Tree;
+import com.morse.Morse;
 
 public class App {
     public static void main(String[] args) {
-        Tree tree = Tree.getInstance();
-        System.out.println("final: " + tree.searchTree(tree.getRoot(), 'a', ""));
+        Morse m = Morse.getInstance();
+        String test = "marcos et veronica";
+        System.out.println("final: " + m.encoder(test));
     }
 }
