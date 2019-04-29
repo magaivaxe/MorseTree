@@ -23,19 +23,31 @@ public class Morse implements MorseInterface {
   }
 
   @Override
-  public String decoder(String str) {
-    return null;
+  public String decoder(String morse) {
+    SearchNode sn = SearchNode.getInstance();
+    String results = "";
+    String splitWords [] = morse.split("<>");
+    // Words loop
+    for (int i = 0; i < splitWords.length; i++) {
+      String splitLetters [] = splitWords[i].split("#");
+      // letters loop
+      for (int j = 0; j < splitLetters.length; j++) {
+        results = results + sn.searchMorse(splitLetters[j]).toString();
+      }
+      results = results + " ";
+    }
+    return results;
   }
   /**
-   * @param str a word or phrase to convert to morse
+   * @param phrase a word or phrase to convert to morse
    * @return morse code
    */
   @Override
-  public String encoder(String str) {
+  public String encoder(String phrase) {
     Node root = Tree.getInstance().getRoot();
     String result = "";
-    for (int i = 0; i < str.length(); i++) {
-      char ltr = str.charAt(i);
+    for (int i = 0; i < phrase.length(); i++) {
+      char ltr = phrase.charAt(i);
       if (ltr == ' ') {
         result = result + "/";
       } else {

@@ -39,4 +39,19 @@ public class SearchNode {
     }
     return this.searchControler.removeFirst();
 	}
+
+  public StringBuffer searchMorse(String code) {
+    char foundChar = ' ';
+    Node current = Tree.getInstance().getRoot();
+    for (int i = 0; i < code.length(); i++) {
+      String symbol = code.substring(i, i + 1);
+      if (symbol.equals(".")) {
+        current = current.getLeft();
+      } else {
+        current = current.getRight();
+      }
+      foundChar = current.getLetter();
+    }
+    return new StringBuffer().append(foundChar);
+  }
 }
