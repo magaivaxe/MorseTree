@@ -1,6 +1,6 @@
 package com.morse;
 
-public interface MorseInterface {
+interface MorseInterface {
 
   public void inOrderPrint();
 
